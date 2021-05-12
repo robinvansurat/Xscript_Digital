@@ -84,9 +84,7 @@
                             <div class="card-body">
                                 <h3 class="card-title">Response:</h3>
                                 <div id="display_result">
-
                                 </div>
-
                             </div>
 
                         </div>
@@ -599,14 +597,32 @@
                 } else {
                     $("#display_result").html(
                         '<pre class="text-white" style="margin-bottom: 0px; white-space: normal;">' +
-                        data + '</pre>');
+                        data + '</pre> <buttom class="btn btn-primary" onclick="addApiToDB()">insert to DB</buttom>');
                 }
+                sessionStorage.setItem("data", data);
             },
             error: function (data) {
                 console.log("error", data);
             }
         });
     });
+
+    function addApiToDB() {
+        let data = sessionStorage.getItem("data")
+        $.ajax({
+            url: `/insert/api`,
+            type: 'POST',
+            data: data,
+            success: function (res) {
+                console.log(res);
+            },
+            error: function (ere) {
+                console.log(res);
+            }
+
+        })
+
+    }
 
     function xmlToString(xmlData) {
 

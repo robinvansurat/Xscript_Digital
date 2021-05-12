@@ -2,36 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Movie;
+use App\Models\Ratings;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Http;
 
-
-class MovieController extends Controller
+class RatingsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($t,$y,$plot,$r)
+    public function index()
     {
-        $url=env("URL_omdbapi", "http://www.omdbapi.com");
-        $api_key = env("API_KEY_omdbapi","32f246bc");
-        $y = $y == "none" ? "" : "&y=".$y;
-        $plot = $plot == "none" ? "" : "&plot=".$plot;
-        $r = $r == "none" ? "" : "&r=".$r;
-        $full_url = $url."/?t=".$t.$y.$plot.$r."&apikey=".$api_key;
-        $response = Http::get($full_url);
-        if ($r == "xml") {
-            return response($response)
-        ->withHeaders([
-            'Content-Type' => 'text/xml'
-        ]);
-        } else {
-            return $response;
-        }
-
+        //
     }
 
     /**
@@ -52,16 +35,16 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Movie  $movie
+     * @param  \App\Models\Ratings  $ratings
      * @return \Illuminate\Http\Response
      */
-    public function show(Movie $movie)
+    public function show(Ratings $ratings)
     {
         //
     }
@@ -69,10 +52,10 @@ class MovieController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Movie  $movie
+     * @param  \App\Models\Ratings  $ratings
      * @return \Illuminate\Http\Response
      */
-    public function edit(Movie $movie)
+    public function edit(Ratings $ratings)
     {
         //
     }
@@ -81,10 +64,10 @@ class MovieController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Movie  $movie
+     * @param  \App\Models\Ratings  $ratings
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Movie $movie)
+    public function update(Request $request, Ratings $ratings)
     {
         //
     }
@@ -92,10 +75,10 @@ class MovieController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Movie  $movie
+     * @param  \App\Models\Ratings  $ratings
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Movie $movie)
+    public function destroy(Ratings $ratings)
     {
         //
     }

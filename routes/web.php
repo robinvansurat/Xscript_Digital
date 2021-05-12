@@ -26,3 +26,4 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/search/api/{t}/{y}/{plot}/{r}',[MovieController::class,'index']);
+Route::post('/insert/api',[MovieController::class,'store']);
