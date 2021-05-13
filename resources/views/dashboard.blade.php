@@ -128,7 +128,7 @@
                                                 <td>{{ $item->Director }}</td>
                                                 <th class="d-flex justify-content-center">
                                                     <i class="fas fa-edit" onclick="editMovie({{ $item }})"></i>
-                                                    <i class="far fa-trash-alt pl-2"></i>
+                                                    <i class="far fa-trash-alt pl-2" onclick="deleteMovie({{$item->id}})"></i>
                                                 </th>
                                             </tr>
                                         @endforeach
@@ -166,7 +166,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form class="form-horizontal">
+                            <form class="form-horizontal"  id="form_edit">
                               <div class="card-body">
                                 <div class="form-group row">
                                   <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
