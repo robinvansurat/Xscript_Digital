@@ -111,6 +111,11 @@ class MovieController extends Controller
         return $movie;
     }
 
+    public function detail(Movie $movie)
+    {
+        return view('viewMovie',['movie' => $movie]);
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

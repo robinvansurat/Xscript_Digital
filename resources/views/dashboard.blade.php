@@ -127,7 +127,8 @@
                                                 <td>{{ $item->Genre }}</td>
                                                 <td>{{ $item->Director }}</td>
                                                 <th class="d-flex justify-content-center">
-                                                    <i class="fas fa-edit" onclick="editMovie({{ $item->id }})"></i>
+                                                    <a href="/view/movie/{{$item->id}}"><i class="far fa-eye"></i></a>
+                                                    <i class="fas fa-edit pl-2" onclick="editMovie({{ $item->id }})"></i>
                                                     <i class="far fa-trash-alt pl-2"
                                                         onclick="deleteMovie({{ $item->id }})"></i>
                                                 </th>
@@ -291,7 +292,7 @@
                                     <div class="form-group row">
                                         <label for="Website" class="col-sm-2 col-form-label">Website</label>
                                         <div class="col-sm-10">
-                                            <input type="url" class="form-control" id="Awards" name="Awards"
+                                            <input type="url" class="form-control" id="Website" name="Website"
                                                 placeholder="Website">
                                         </div>
                                     </div>
@@ -348,7 +349,6 @@
         </section>
         <!-- /.content -->
     </div>
-
 </x-app-layout>
 <script src="plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -452,7 +452,8 @@
                     res['Released'],
                     res['Genre'],
                     res['Director'],
-                    '<i class="fas fa-edit" onclick="editMovie(' + res['id'] + ')"></i>' +
+                    '<a href="/view/movie/'+res['id']+'"><i class="far fa-eye"></i></a>'+
+                    '<i class="fas fa-edit pl-2" onclick="editMovie(' + res['id'] + ')"></i>' +
                     '<i class="far fa-trash-alt pl-2" onclick="deleteMovie(' + res['id'] + ')"></i>'
                 ]).draw(false);
             },

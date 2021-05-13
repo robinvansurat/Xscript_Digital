@@ -32,3 +32,4 @@ Route::post('/insert/api',[MovieController::class,'store']);
 Route::delete('/delete/movie/{movie}', [MovieController::class, 'destroy']);
 Route::get('/getmovie/{movie}',[MovieController::class,'show']);
 Route::post('/update/movie/{movie}', [MovieController::class, 'update']);
+Route::get('/view/movie/{movie}', [MovieController::class, 'detail']);
