@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -28,3 +29,6 @@ require __DIR__.'/auth.php';
 Route::get('/dashboard', [MovieController::class,  'dashboard']);
 Route::get('/search/api/{t}/{y}/{plot}/{r}',[MovieController::class,'index']);
 Route::post('/insert/api',[MovieController::class,'store']);
+Route::delete('/delete/movie/{movie}', [MovieController::class, 'destroy']);
+Route::get('/getmovie/{movie}',[MovieController::class,'show']);
+Route::post('/update/movie/{movie}', [MovieController::class, 'update']);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Movie;
+use GuzzleHttp\RetryMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -107,7 +108,7 @@ class MovieController extends Controller
      */
     public function show(Movie $movie)
     {
-        //
+        return $movie;
     }
 
     /**
@@ -130,7 +131,32 @@ class MovieController extends Controller
      */
     public function update(Request $request, Movie $movie)
     {
-        //
+        $movie->Title = $request->Title;
+        $movie->Actors = $request->Actors;
+        $movie->Awards = $request->Awards;
+        $movie->BoxOffice = $request->BoxOffice;
+        $movie->Country = $request->Country;
+        $movie->DVD = $request->DVD;
+        $movie->Director = $request->Director;
+        $movie->Genre = $request->Genre;
+        $movie->Language = $request->Language;
+        $movie->Metascore = $request->Metascore;
+        $movie->Plot = $request->Plot;
+        $movie->Poster = $request->Poster;
+        $movie->Production = $request->Production;
+        $movie->Rated = $request->Rated;
+        $movie->Released = $request->Released;
+        // $movie->Response = $request->Response;
+        $movie->Runtime = $request->Runtime;
+        $movie->Type = $request->Type;
+        $movie->Website = $request->Website;
+        $movie->Writer = $request->Writer;
+        $movie->Year = $request->Year;
+        $movie->imdbID = $request->imdbID;
+        $movie->imdbRating = $request->imdbRating;
+        $movie->imdbVotes = $request->imdbVotes;
+        $movie->save();
+        return $movie;
     }
 
     /**
@@ -141,6 +167,7 @@ class MovieController extends Controller
      */
     public function destroy(Movie $movie)
     {
-        //
+        $delete = Movie::destroy($movie->id);
+        return $delete;
     }
 }
